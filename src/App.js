@@ -3,9 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import FirstComponent from './components/FirstComponent'
 import { Switch, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage'
-import About from './pages/About'
-import Services from './pages/Services'
+
 
 /*
 //Notes:
@@ -30,8 +28,8 @@ function App() {
       <FirstComponent displaytext = "First Comp. Data"/>
 
       <Switch>
-        <Route exact path="/" component= {HomePage}/>
-        <Route path="/Services" component = {Services}/>
+        <Route exact path="/" component= {}/>
+        <Route/>
 
       </Switch>
 
