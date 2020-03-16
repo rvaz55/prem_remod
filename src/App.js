@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import FirstComponent from './components/FirstComponent'
 import { Switch, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage'
 import About from './pages/About'
 import Services from './pages/Services'
+import NoMatch from './pages/NoMatch'
+
+
+
 
 /*
 //Notes:
@@ -20,27 +24,56 @@ method () allows, 'class-declarations' to be hoisted.
 */
 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Logo header</h1>
-      </header>
+/*
+Notes: This page hosts the routes btw paths and webpages
+So basically this file holds the 'Router'  component
+*/
 
-      <FirstComponent displaytext = "First Comp. Data"/>
-
-      <Switch>
-        <Route exact path="/" component= {HomePage}/>
-        <Route path="/Services" component = {Services}/>
-
-      </Switch>
+// const byPropKey = (propertyName, value) => () => ({
+//   [propertyName]: value,
+// });
 
 
-      <footer>Copyright &copy; Pre-RemMod.com. </footer>
+class App extends React.Component {
+  
+
+  render() {
+    
+    // if(localStorage.loggedIn=='true'&&this.state.userLoggedIn==false)
+    // {
+    //   let loginData = JSON.parse(localStorage.loginData)
+    //   this.setState({
+    //     userLoggedIn: true,
+    //     storeID: loginData._id,
+    //     email: loginData.email, 
+    //     stockedItems: [],
+    //     price: null,
+    //     category:''
+    //   })
+    // }
+    
+    return (
+      
+      <div>
+
+{/* 
+        <AppNavbar
+          userLoggedIn={this.state.userLoggedIn}
+          setUserLoggedIn={this.setUserLoggedIn}
+        /> */}
+        <Switch >
+          <Route exact path='/' component={HomePage} />
+          <Route path='/about' component={About} />
+          <Route path='/services' component={Services} />
+          <Route component={NoMatch} />
+        </Switch>
+
+    
+      </div>
 
 
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
